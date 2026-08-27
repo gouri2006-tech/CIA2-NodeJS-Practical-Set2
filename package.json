@@ -1,0 +1,13 @@
+{
+  "name": "cia2-practical-set2",
+  "version": "1.0.0",
+  "description": "CIA-2 Node.js Practical Set 2",
+  "main": "countdown.js",
+  "scripts": {
+    "start": "node countdown.js",
+    "dev": "nodemon countdown.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
