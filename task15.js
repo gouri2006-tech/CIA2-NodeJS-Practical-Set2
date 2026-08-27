@@ -1,5 +1,16 @@
-const { checkTimeLeftPromise } = require('./countdownModule');
+// Task 15: Create a local CommonJS module
 
-checkTimeLeftPromise(2)
-  .then(seconds => console.log(`Time remaining: ${seconds}s`))
-  .catch(err => console.error(err.message));
+function checkTimeLeftPromise(seconds) {
+  return new Promise((resolve, reject) => {
+    if (!Number.isFinite(seconds) || seconds < 0) {
+      return reject(new Error("Invalid duration"));
+    }
+
+    setTimeout(() => resolve(seconds), seconds * 1000);
+  });
+}
+
+// Export the function so it can be used in another file.
+module.exports = {
+  checkTimeLeftPromise
+};
