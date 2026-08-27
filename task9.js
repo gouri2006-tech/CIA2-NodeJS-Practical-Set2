@@ -1,8 +1,12 @@
-const seconds = 5;
-let remaining = seconds;
+// Task 9: Countdown using setInterval()
+// and a separate setTimeout() for the final notification.
+
+const duration = 5;
+let remaining = duration;
 
 const intervalId = setInterval(() => {
-  remaining -= 1;
+  remaining--;
+
   console.log(`Remaining: ${remaining}s`);
 
   if (remaining === 0) {
@@ -12,4 +16,12 @@ const intervalId = setInterval(() => {
 
 setTimeout(() => {
   console.log("Time's up!");
-}, seconds * 1000);
+}, duration * 1000);
+
+// Output:
+// Remaining: 4s
+// Remaining: 3s
+// Remaining: 2s
+// Remaining: 1s
+// Remaining: 0s
+// Time's up!
