@@ -1,16 +1,17 @@
-// Task 15: Create a local CommonJS module
+// Task 15: Import and use the local CommonJS module
 
-function checkTimeLeftPromise(seconds) {
-  return new Promise((resolve, reject) => {
-    if (!Number.isFinite(seconds) || seconds < 0) {
-      return reject(new Error("Invalid duration"));
-    }
+// The function is imported from countdownModule.js
+// using require().
 
-    setTimeout(() => resolve(seconds), seconds * 1000);
+const { checkTimeLeftPromise } = require("./countdownModule");
+
+checkTimeLeftPromise(2)
+  .then(seconds => {
+    console.log(`Time remaining: ${seconds}s`);
+  })
+  .catch(error => {
+    console.error(`Error: ${error.message}`);
   });
-}
 
-// Export the function so it can be used in another file.
-module.exports = {
-  checkTimeLeftPromise
-};
+// Output:
+// Time remaining: 2s
